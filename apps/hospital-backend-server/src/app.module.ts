@@ -5,6 +5,7 @@ import { DoctorModule } from "./doctor/doctor.module";
 import { PatientRegistrationFormModule } from "./patientRegistrationForm/patientRegistrationForm.module";
 import { BillingInformationModule } from "./billingInformation/billingInformation.module";
 import { UserModule } from "./user/user.module";
+import { PatientManagementModule } from "./patientmanagement/patientmanagement.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -31,6 +32,7 @@ import { AuthModule } from "./auth/auth.module";
     PatientRegistrationFormModule,
     BillingInformationModule,
     UserModule,
+    PatientManagementModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,
