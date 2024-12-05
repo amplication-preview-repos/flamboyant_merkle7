@@ -1,0 +1,75 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model CustomerProfile {
+  address     String?
+  createdAt   DateTime @default(now())
+  email       String?
+  firstName   String?
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  lastName    String?
+  phoneNumber String?
+  updatedAt   DateTime @updatedAt
+}
+
+model PatientSchedule {
+  appointmentDate   DateTime?
+  appointmentReason String?
+  appointmentTime   String?
+  createdAt         DateTime  @default(now())
+  doctorName        String?
+  id                String    @id @default(auto()) @map("_id") @db.ObjectId
+  patientName       String?
+  updatedAt         DateTime  @updatedAt
+}
+
+model Doctor {
+  createdAt      DateTime @default(now())
+  email          String?
+  firstName      String?
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  lastName       String?
+  phoneNumber    String?
+  specialization String?
+  updatedAt      DateTime @updatedAt
+}
+
+model PatientRegistrationForm {
+  address          String?
+  createdAt        DateTime  @default(now())
+  dateOfBirth      DateTime?
+  email            String?
+  emergencyContact String?
+  fullName         String?
+  id               String    @id @default(auto()) @map("_id") @db.ObjectId
+  phoneNumber      String?
+  updatedAt        DateTime  @updatedAt
+}
+
+model BillingInformation {
+  amount         Float?
+  billingDate    DateTime?
+  billingDetails String?
+  createdAt      DateTime  @default(now())
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  patientName    String?
+  updatedAt      DateTime  @updatedAt
+}
+
+model User {
+  createdAt DateTime @default(now())
+  email     String?  @unique
+  firstName String?
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  lastName  String?
+  password  String
+  roles     Json
+  updatedAt DateTime @updatedAt
+  username  String   @unique
+}
